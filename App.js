@@ -25,6 +25,10 @@ import BubbleMenu from './bubblemenu';
 
 import DragMenu from './dragmenu';
 
+import DeckSwiper from './deckswiper';
+
+import Home from './home';
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
@@ -44,9 +48,7 @@ export default class App extends Component<Props> {
   render() {
     
     return (
-      <View style={styles.container}>
-        <DragMenu/>
-      </View>
+      <Home/>
     );
   }
 }
@@ -55,12 +57,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
-  },
-  draggableBar: {
-    height: 60,
-    width: deviceWidth,
-    backgroundColor: 'red',
-    position: 'absolute',
-    bottom: 0,
   },
 });
