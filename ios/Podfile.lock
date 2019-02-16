@@ -5,11 +5,14 @@ PODS:
     - React/Core (= 0.57.7)
   - React/Core (0.57.7):
     - yoga (= 0.57.7.React)
+  - RNVectorIcons (6.3.0):
+    - React
   - yoga (0.57.7.React)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - React (from `../node_modules/react-native`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 EXTERNAL SOURCES:
@@ -17,14 +20,17 @@ EXTERNAL SOURCES:
     :path: ../node_modules/react-native-linear-gradient
   React:
     :path: ../node_modules/react-native
+  RNVectorIcons:
+    :path: ../node_modules/react-native-vector-icons
   yoga:
     :path: ../node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 3b5aac8feb15bf010ff21d15a86cfc76b37232d6
+PODFILE CHECKSUM: a94ffdb76fe14da8b931cbcbdb87e59096380354
 
 COCOAPODS: 1.4.0

@@ -21,13 +21,15 @@ import {
 
 import Header from './header';
 
+import Home from './home';
+
 import BubbleMenu from './bubblemenu';
 
 import DragMenu from './dragmenu';
 
 import DeckSwiper from './deckswiper';
 
-import Home from './home';
+import Product from './product';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
