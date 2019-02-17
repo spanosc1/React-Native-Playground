@@ -1,25 +1,40 @@
 PODS:
   - BVLinearGradient (2.5.3):
     - React
+  - lottie-ios (2.5.0)
+  - lottie-react-native (2.5.11):
+    - lottie-ios
+    - React
   - React (0.57.7):
     - React/Core (= 0.57.7)
   - React/Core (0.57.7):
     - yoga (= 0.57.7.React)
+  - RNGestureHandler (1.0.15):
+    - React
   - RNVectorIcons (6.3.0):
     - React
   - yoga (0.57.7.React)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
+  - lottie-ios (from `../node_modules/lottie-ios`)
+  - lottie-react-native (from `../node_modules/lottie-react-native`)
   - React (from `../node_modules/react-native`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 EXTERNAL SOURCES:
   BVLinearGradient:
     :path: ../node_modules/react-native-linear-gradient
+  lottie-ios:
+    :path: ../node_modules/lottie-ios
+  lottie-react-native:
+    :path: ../node_modules/lottie-react-native
   React:
     :path: ../node_modules/react-native
+  RNGestureHandler:
+    :path: ../node_modules/react-native-gesture-handler
   RNVectorIcons:
     :path: ../node_modules/react-native-vector-icons
   yoga:
@@ -27,10 +42,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
+  lottie-ios: 9f24be3ecb13412223b6ac70d97437742b0e3de1
+  lottie-react-native: 31ceb9d2d1423fa99c64d19eb93c0364256a6a3e
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  RNGestureHandler: afde2addc517e85cc97a25bfe119acbee779a7ce
   RNVectorIcons: 8c52e1e8da1153613fdef44748e865c25556cb9c
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: a94ffdb76fe14da8b931cbcbdb87e59096380354
+PODFILE CHECKSUM: 421b62c0f16f8158c6e54c846b7fc6ebaab2b9ba
 
 COCOAPODS: 1.4.0

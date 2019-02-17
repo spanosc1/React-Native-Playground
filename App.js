@@ -21,6 +21,8 @@ import {
 
 import Header from './header';
 
+import Signin from './signin';
+
 import Home from './home';
 
 import BubbleMenu from './bubblemenu';
@@ -29,7 +31,7 @@ import DragMenu from './dragmenu';
 
 import DeckSwiper from './deckswiper';
 
-import Product from './product';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
@@ -42,18 +44,6 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
-  state = {
-    
-  };
-
-  render() {
-    
-    return (
-      <Home/>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -61,3 +51,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
 });
+
+const config = {
+  transitionConfig: () => ({
+    transitionSpec: {
+      duration: 0,
+      timing: Animated.timing,
+      easing: Easing.step0,
+    },
+  }),
+}
+
+const AppStack = createBottomTabNavigator(
+  {
+    Signin: {
+      screen: Signin,
+      navigationOptions: {
+        tabBarVisible: false
+      }
+    },
+    Home: {
+      screen: Home,
+      navigationOptions: {
+        tabBarVisible: false
+      }
+    }
+  },
+  config
+);
+
+const App = createAppContainer(AppStack);
+
+export default App;
