@@ -28,7 +28,7 @@ import gVal from './globalvalues';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-const loading = require('./img/animation-w200-h200.json');
+const loading = require('./../img/animation-w200-h200.json');
 
 type Props = {};
 class Signin extends React.Component {
@@ -41,7 +41,7 @@ class Signin extends React.Component {
     loadingOpacity: new Animated.Value(0),
     buttonScale: new Animated.Value(1),
     buttonShadow: new Animated.Value(6),
-    buttonShadowOpacity: new Animated.Value(0.2)
+    buttonShadowOpacity: new Animated.Value(0.2),
   };
 
   componentDidMount() {

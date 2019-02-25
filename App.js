@@ -19,17 +19,17 @@ import {
   PanResponder
 } from 'react-native';
 
-import Header from './header';
+import Header from './js/header';
 
-import Signin from './signin';
+import Signin from './js/signin';
 
-import Home from './home';
+import Home from './js/home';
 
-import BubbleMenu from './bubblemenu';
+import BubbleMenu from './js/bubblemenu';
 
-import DragMenu from './dragmenu';
+import DragMenu from './js/dragmenu';
 
-import DeckSwiper from './deckswiper';
+import DeckSwiper from './js/deckswiper';
 
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
