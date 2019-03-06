@@ -41,7 +41,10 @@ class Home extends React.Component {
     translateMain: new Animated.Value(0),
     rotateY: new Animated.Value(0),
     sideScale: new Animated.Value(1),
-    translateSide: new Animated.Value(deviceWidth*4/5),
+    translateSide: new Animated.Value(deviceWidth*4/5 + 60),
+    overlayOpacity: new Animated.Value(0),
+
+    overlayShow: false,
   };
 
   componentDidMount() {
@@ -50,14 +53,16 @@ class Home extends React.Component {
         this.state.scale,
         {
           toValue: 1.0,
-          duration: 200,
+          duration: 500,
+          //easing: Easing.out((t) => t*t*t*t)
         }
       ),
       Animated.timing(
         this.state.opacity,
         {
           toValue: 1,
-          duration: 200,
+          duration: 500,
+          //easing: Easing.out((t) => t*t*t*t)
         }
       )
     ]).start(() => {
@@ -175,7 +180,8 @@ class Home extends React.Component {
     }, 800);
   }
 
-  animateMenuOut() {
+  animateMenuIn() {
+    this.setState({overlayShow: true});
     Animated.parallel([
       Animated.timing(
         this.state.rotateY,
@@ -203,26 +209,46 @@ class Home extends React.Component {
       )
     ]).start();
     setTimeout(() => {
+      Animated.parallel([
+        Animated.timing(
+          this.state.translateSide,
+          {
+            toValue: 0,
+            duration: 400,
+            easing: Easing.out((t) => t*t*t*t*t*t*t*t)
+          }
+        ),
+        Animated.timing(
+          this.state.overlayOpacity,
+          {
+            toValue: 0.3,
+            duration: 400,
+            easing: Easing.out((t) => t*t*t*t*t*t*t*t)
+          }
+        )
+      ]).start();
+    }, 100);
+  }
+
+  animateMenuOut() {
+    Animated.parallel([
       Animated.timing(
         this.state.translateSide,
+        {
+          toValue: deviceWidth*4/5 + 30,
+          duration: 400,
+          easing: Easing.out((t) => t*t*t*t*t*t*t*t)
+        }
+      ),
+      Animated.timing(
+        this.state.overlayOpacity,
         {
           toValue: 0,
           duration: 400,
           easing: Easing.out((t) => t*t*t*t*t*t*t*t)
         }
-      ).start();
-    }, 100);
-  }
-
-  animateMenuIn() {
-    Animated.timing(
-      this.state.translateSide,
-      {
-        toValue: deviceWidth*4/5,
-        duration: 400,
-        easing: Easing.out((t) => t*t*t*t*t*t*t*t)
-      }
-    ).start();
+      )
+    ]).start();
     setTimeout(() => {
       Animated.parallel([
         Animated.timing(
@@ -249,7 +275,9 @@ class Home extends React.Component {
             easing: Easing.out((t) => t*t*t*t*t*t*t*t)
           }
         )
-      ]).start();
+      ]).start(() => {
+        this.setState({overlayShow: false});
+      });
     }, 100);
   }
 
@@ -271,6 +299,12 @@ class Home extends React.Component {
           colors={[gVal.p4.h, gVal.p3.h, gVal.p2.h]}
           style={styles.container}
         >
+          {this.state.overlayShow &&
+            <Animated.View style={{zIndex: 9998, position: 'absolute', opacity: this.state.overlayOpacity, backgroundColor: '#333333'}}>
+              <TouchableOpacity onPress={() => this.animateMenuOut()} activeOpacity={0.3} style={{height: deviceHeight, width: deviceWidth}}>
+              </TouchableOpacity>
+            </Animated.View>
+          }
           <Animated.View style={[styles.container, {
             transform: [
               { scale: this.state.sideScale },
@@ -289,7 +323,7 @@ class Home extends React.Component {
                 <View style={styles.headerTextView}>
                   <Text style={styles.headerText}>Home</Text>
                 </View>
-                <TouchableOpacity onPress={() => this.animateMenuOut()} style={styles.barsContainer}>
+                <TouchableOpacity onPress={() => this.animateMenuIn()} style={styles.barsContainer}>
                   <View style={styles.bar1}>
                   </View>
                   <View style={styles.bar2}>
@@ -317,9 +351,9 @@ class Home extends React.Component {
                 </Animated.View>
                             
               </ScrollView>
-              <TouchableOpacity onPress={() => this.animateMenuIn()} style={styles.footer}>
+              <View style={styles.footer}>
                 
-              </TouchableOpacity>
+              </View>
             </LinearGradient>
           </Animated.View>
           <Animated.View style={[styles.sideMenu, {transform: [{translateX: this.state.translateSide}]}]}>
@@ -421,6 +455,10 @@ const styles = StyleSheet.create({
     backgroundColor: gVal.p5.h,
     position: 'absolute',
     right: 0,
+    shadowOffset:{  width: -30,  height: 0,  },
+    shadowRadius: 30,
+    shadowColor: 'black',
+    shadowOpacity: 0.6,
     zIndex: 9999,
   },
   sideGradient: {
