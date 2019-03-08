@@ -25,6 +25,8 @@ import Signin from './js/signin';
 
 import Home from './js/home';
 
+import Home2 from './js/home2';
+
 import BubbleMenu from './js/bubblemenu';
 
 import DragMenu from './js/dragmenu';
@@ -75,7 +77,13 @@ const AppStack = createBottomTabNavigator(
       navigationOptions: {
         tabBarVisible: false
       }
-    }
+    },
+    Home2: {
+      screen: Home2,
+      navigationOptions: {
+        tabBarVisible: false
+      }
+    },
   },
   config
 );

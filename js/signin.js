@@ -229,7 +229,7 @@ class Signin extends React.Component {
             }
           )
         ]).start(() => {
-          this.props.navigation.navigate('Home');
+          this.props.navigation.navigate('Home2');
         });
       }, 1500);
     }
